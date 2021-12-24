@@ -8,8 +8,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 8079
-    nodePort: 30001
+    targetPort: 80    
   selector:
     run: springboot
 status:
