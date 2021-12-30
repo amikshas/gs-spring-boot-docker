@@ -1,0 +1,19 @@
+---
+- hosts: ansible-server
+  become: true
+
+  tasks:
+  - name: create docker image using war file
+    command: sudo docker build -t springboot-image:latest .
+    args:
+      chdir: ~/k8s-lab
+
+  - name: create tag to image
+    command: sudo docker tag springboot-image:latest amikshas/a-gs-spring-boot-docker:2021-12-30
+
+  - name: push image on to dockerhub
+    command: sudo docker push amikshas/a-gs-spring-boot-docker:2021-12-30
+
+  - name: remove docker images form ansible server
+    command: sudo docker rmi amikshas/a-gs-spring-boot-docker:2021-12-30 springboot-image:latest
+    ignore_errors: yes
