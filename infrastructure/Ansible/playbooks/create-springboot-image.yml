@@ -9,11 +9,11 @@
       chdir: ~/k8s-lab
 
   - name: create tag to image
-    command: sudo docker tag springboot-image:latest amikshas/a-gs-spring-boot-docker:2021-12-30
+    command: sudo docker tag springboot-image amikshas/springboot-image
 
   - name: push image on to dockerhub
-    command: sudo docker push amikshas/a-gs-spring-boot-docker:2021-12-30
+    command: sudo docker push amikshas/springboot-image
 
   - name: remove docker images form ansible server
-    command: sudo docker rmi amikshas/a-gs-spring-boot-docker:2021-12-30 springboot-image:latest
+    command: sudo docker rmi amikshas/springboot-image springboot-image:latest
     ignore_errors: yes
