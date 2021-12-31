@@ -1,0 +1,9 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+        namespace: <namespace_name>
+        name: user1-role            
+rules:
+     - apiGroups: ["", "extensions", "apps"]
+       resources: ["pods"]
+       verbs: ["get", "list", "get", "watch", "create", "update", "delete"]
