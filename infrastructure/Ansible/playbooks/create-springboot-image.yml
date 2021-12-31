@@ -3,16 +3,16 @@
   
   tasks:
   - name: create docker image using war file
-    command: sudo docker build -t springboot-image:latest .
+    command: sudo docker build -t springboot-image .
     args:
       chdir: /home/ubuntu/k8s-lab
 
   - name: create tag to image
-    command: sudo docker tag springboot-image amikshas/springboot-image
+    command: sudo docker tag springboot-image amikshas/springboot-image:latest
 
   - name: push image on to dockerhub
-    command: sudo docker push amikshas/springboot-image
+    command: sudo docker push amikshas/springboot-image:latest
 
   - name: remove docker images form ansible server
-    command: sudo docker rmi amikshas/springboot-image springboot-image:latest
+    command: sudo docker rmi amikshas/springboot-image:latest springboot-image
     ignore_errors: yes
