@@ -1,12 +1,11 @@
 ---
 - hosts: ansible-server
-  become: true
-
+  
   tasks:
   - name: create docker image using war file
     command: sudo docker build -t springboot-image:latest .
     args:
-      chdir: ~/k8s-lab
+      chdir: /home/ubuntu/k8s-lab
 
   - name: create tag to image
     command: sudo docker tag springboot-image amikshas/springboot-image
